@@ -297,6 +297,8 @@ INSERT INTO `badges` (`name`, `description`, `icon`, `category`, `xp_value`, `is
 ('Rising Star', 'Reached Level 5', 'fa-star', 'milestone', 200, 0),
 ('Easter Egg', 'Found a hidden feature!', 'fa-egg', 'hidden', 50, 1);
 
--- Create default admin user (password: admin123 - CHANGE IN PRODUCTION!)
+-- Create default admin user
+-- SECURITY WARNING: This is a placeholder password. You MUST change it immediately after installation!
+-- Default password is 'ChangeMe!2025' - Run this after setup: UPDATE users SET password_hash = PASSWORD_HASH('your_secure_password', PASSWORD_BCRYPT) WHERE email = 'admin@outssinc.org';
 INSERT INTO `users` (`uuid`, `email`, `password_hash`, `first_name`, `last_name`, `role`, `status`, `email_verified`) VALUES
-(UUID(), 'admin@outssinc.org', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'System', 'Admin', 'super_admin', 'active', 1);
+(UUID(), 'admin@outssinc.org', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'System', 'Admin', 'super_admin', 'active', 1);

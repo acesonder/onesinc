@@ -1,0 +1,43 @@
+{
+    "name": "OUTSSINC - Outreach Someone In Need of Change",
+    "short_name": "OUTSSINC",
+    "description": "Peer support platform helping people navigate life's challenges",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f8f9fd",
+    "theme_color": "#d80032",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/assets/images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["social", "health", "lifestyle"],
+    "lang": "en-CA",
+    "scope": "/",
+    "shortcuts": [
+        {
+            "name": "Find Help",
+            "short_name": "Help",
+            "description": "Find local resources and support",
+            "url": "/pages/resources.php",
+            "icons": [{ "src": "/assets/images/icon-help.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Crisis Line",
+            "short_name": "Crisis",
+            "description": "Access crisis support",
+            "url": "/pages/crisis.php",
+            "icons": [{ "src": "/assets/images/icon-crisis.png", "sizes": "96x96" }]
+        }
+    ]
+}

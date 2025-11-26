@@ -1,0 +1,493 @@
+/**
+ * OUTSSINC Platform - Accessibility Styles
+ * 
+ * Enhanced accessibility features including:
+ * - Font size adjustments
+ * - High contrast mode
+ * - Focus indicators
+ * - Reduced motion
+ * 
+ * @package OUTSSINC
+ * @version 2.0
+ */
+
+/* ===================================
+   Screen Reader Only
+   =================================== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+/* ===================================
+   Skip Navigation Links
+   =================================== */
+.skip-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 var(--border-radius) 0;
+}
+
+.skip-link:focus {
+    left: 0;
+    top: 0;
+}
+
+/* ===================================
+   Focus Indicators
+   =================================== */
+/* Enhanced focus outlines */
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+/* Remove default focus for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* High visibility focus for forms */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 0;
+    box-shadow: 0 0 0 4px rgba(216, 0, 50, 0.2);
+}
+
+/* Button focus states */
+.btn:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px rgba(216, 0, 50, 0.3);
+}
+
+/* Link focus states */
+a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    background: rgba(216, 0, 50, 0.1);
+    border-radius: 2px;
+}
+
+/* ===================================
+   Font Size Adjustments
+   =================================== */
+/* Applied via body data-font-size attribute */
+body[data-font-size="small"] {
+    font-size: 14px;
+}
+
+body[data-font-size="normal"] {
+    font-size: 16px;
+}
+
+body[data-font-size="large"] {
+    font-size: 18px;
+}
+
+body[data-font-size="xlarge"] {
+    font-size: 20px;
+}
+
+body[data-font-size="xxlarge"] {
+    font-size: 24px;
+}
+
+/* Scale headings proportionally */
+body[data-font-size="large"] h1,
+body[data-font-size="xlarge"] h1,
+body[data-font-size="xxlarge"] h1 {
+    font-size: 2.75rem;
+}
+
+body[data-font-size="large"] h2,
+body[data-font-size="xlarge"] h2,
+body[data-font-size="xxlarge"] h2 {
+    font-size: 2.25rem;
+}
+
+/* ===================================
+   High Contrast Mode
+   =================================== */
+body.high-contrast {
+    --color-light: #000000;
+    --color-dark: #ffffff;
+    --color-primary: #ffff00;
+    --color-gray: #cccccc;
+    --color-gray-light: #aaaaaa;
+}
+
+body.high-contrast,
+body.high-contrast .main-nav,
+body.high-contrast .main-footer,
+body.high-contrast .card,
+body.high-contrast .hero {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.high-contrast a,
+body.high-contrast .nav-link,
+body.high-contrast .btn-outline {
+    color: #ffff00 !important;
+}
+
+body.high-contrast .btn-primary {
+    background: #ffff00 !important;
+    color: #000000 !important;
+    border: 2px solid #ffff00 !important;
+}
+
+body.high-contrast .card,
+body.high-contrast .form-control,
+body.high-contrast .portal-content {
+    border: 2px solid #ffffff !important;
+}
+
+body.high-contrast .form-control {
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.high-contrast .crisis-marquee {
+    background: #ffff00 !important;
+    color: #000000 !important;
+}
+
+body.high-contrast .dropdown-menu {
+    background: #000000 !important;
+    border: 2px solid #ffffff !important;
+}
+
+body.high-contrast .dropdown-menu a {
+    color: #ffffff !important;
+}
+
+body.high-contrast .dropdown-menu a:hover {
+    background: #333333 !important;
+    color: #ffff00 !important;
+}
+
+/* ===================================
+   Reduced Motion
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .marquee-content {
+        animation: none !important;
+    }
+    
+    .quick-exit-btn {
+        animation: none !important;
+    }
+}
+
+/* User preference for reduced motion */
+body.reduce-motion *,
+body.reduce-motion *::before,
+body.reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
+
+/* ===================================
+   Dyslexia Friendly Mode
+   =================================== */
+body.dyslexia-friendly {
+    font-family: 'OpenDyslexic', 'Comic Sans MS', sans-serif;
+    letter-spacing: 0.05em;
+    word-spacing: 0.1em;
+    line-height: 1.8;
+}
+
+body.dyslexia-friendly p,
+body.dyslexia-friendly li,
+body.dyslexia-friendly span {
+    text-align: left;
+    max-width: 70ch;
+}
+
+/* ===================================
+   Reading Guide
+   =================================== */
+.reading-guide {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: rgba(255, 255, 0, 0.3);
+    pointer-events: none;
+    z-index: 9998;
+    display: none;
+}
+
+body.show-reading-guide .reading-guide {
+    display: block;
+}
+
+/* ===================================
+   Accessibility Widget
+   =================================== */
+.a11y-widget {
+    position: fixed;
+    bottom: 100px;
+    left: 20px;
+    z-index: 9000;
+}
+
+.a11y-toggle {
+    width: 50px;
+    height: 50px;
+    background: var(--color-dark);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-fast);
+}
+
+.a11y-toggle:hover {
+    background: var(--color-primary);
+    transform: scale(1.1);
+}
+
+.a11y-panel {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 280px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-lg);
+    display: none;
+}
+
+.a11y-panel.open {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.a11y-panel h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.a11y-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-light);
+}
+
+.a11y-option:last-child {
+    border-bottom: none;
+}
+
+.a11y-option label {
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+
+.a11y-option input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-primary);
+}
+
+.a11y-option .font-controls {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.a11y-option .font-controls button {
+    width: 30px;
+    height: 30px;
+    background: var(--color-light);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.a11y-option .font-controls button:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+@media print {
+    /* Hide non-essential elements */
+    .main-nav,
+    .crisis-marquee,
+    .quick-exit-btn,
+    .safety-overlay,
+    .portal-panel,
+    .a11y-widget,
+    .footer-crisis,
+    .social-links,
+    .btn {
+        display: none !important;
+    }
+    
+    /* Reset body padding */
+    body {
+        padding: 0;
+        background: white;
+        color: black;
+    }
+    
+    /* Ensure readable text */
+    body, p, li, td, th {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    h1 { font-size: 24pt; }
+    h2 { font-size: 20pt; }
+    h3 { font-size: 16pt; }
+    
+    /* Show link URLs */
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        color: #666;
+    }
+    
+    /* Avoid page breaks inside */
+    .card, .feature-card, .testimonial-card {
+        break-inside: avoid;
+    }
+    
+    /* Print header */
+    main::before {
+        content: 'OUTSSINC - Outreach Someone In Need of Change';
+        display: block;
+        font-size: 18pt;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20pt;
+        border-bottom: 2pt solid #d80032;
+        padding-bottom: 10pt;
+    }
+}
+
+/* ===================================
+   Touch Accessibility
+   =================================== */
+/* Minimum touch target sizes */
+@media (pointer: coarse) {
+    .btn,
+    button,
+    a.nav-link,
+    .dropdown-menu a,
+    .form-control,
+    input[type="checkbox"],
+    input[type="radio"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    input[type="checkbox"],
+    input[type="radio"] {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .access-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* ===================================
+   Text-to-Speech Highlights
+   =================================== */
+.tts-active {
+    background: rgba(216, 0, 50, 0.2);
+    outline: 2px solid var(--color-primary);
+}
+
+.tts-reading {
+    background: rgba(255, 255, 0, 0.3);
+    transition: background 0.2s ease;
+}
+
+/* ===================================
+   Zoom Safe Layout
+   =================================== */
+/* Ensure layout works at 200% zoom */
+@media (min-width: 320px) {
+    html {
+        overflow-x: hidden;
+    }
+    
+    body {
+        min-width: 320px;
+    }
+    
+    .container {
+        padding-left: max(var(--spacing-md), env(safe-area-inset-left));
+        padding-right: max(var(--spacing-md), env(safe-area-inset-right));
+    }
+}

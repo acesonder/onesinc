@@ -389,6 +389,7 @@ $stats = [
                         <li><a href="/admin/settings.php"><i class="fas fa-cog"></i> Settings</a></li>
                         <li><a href="/admin/backup.php"><i class="fas fa-database"></i> Backup</a></li>
                         <li><a href="/admin/maintenance.php"><i class="fas fa-tools"></i> Maintenance</a></li>
+                        <li><a href="/admin/updates.php"><i class="fas fa-newspaper"></i> System Updates</a></li>
                         <li><a href="/docs/"><i class="fas fa-book"></i> Documentation</a></li>
                     </ul>
                 </div>

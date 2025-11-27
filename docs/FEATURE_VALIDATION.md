@@ -138,7 +138,7 @@ The OUTSSINC platform has been thoroughly tested across all pages and major feat
 
 #### 1. Real-Time Chat System
 **Why:** Immediate support is critical for crisis situations.
-- **Technology:** WebSocket (Socket.io or Ratchet for PHP)
+- **Technology:** WebSocket (Ratchet, ReactPHP, or Swoole for PHP backend)
 - **Features:**
   - Live chat with peer support workers
   - Chat history persistence
